@@ -3,9 +3,9 @@
 ' See the LICENSE file in the project root for more information.
 Option Explicit On
 Option Strict On
-
 Imports VBMsgBox.Interaction
 Imports Xunit
+
 
 Namespace Microsoft.VisualBasic.Tests.VB
 
