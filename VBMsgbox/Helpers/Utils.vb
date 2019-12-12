@@ -49,6 +49,7 @@ Public Module Utils
             Throw ex
         Catch ex As Exception
             Debug.Fail("Unable to get and format string for ResourceKey: " & ResourceKey)
+            Throw ex
         Finally
             Debug.Assert(Not String.IsNullOrEmpty(UnformattedString), "Unable to get string for ResourceKey: " & ResourceKey)
             Debug.Assert(Not String.IsNullOrEmpty(FormattedString), "Unable to format string for ResourceKey: " & ResourceKey)

@@ -6,17 +6,17 @@
     <Authors>Paul Cohen</Authors>
     <NeutralLanguage></NeutralLanguage>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Description>VB MessageBox for .NET Core 3.0</Description>
+    <Description>VB MessageBox for .NET Core 3.1</Description>
     <PackageTags>Visual Basic MsgBox VB</PackageTags>
     <UseWindowsForms>true</UseWindowsForms>
     <Company>TravelByPaul.com</Company>
     <Copyright>Copyright @2019</Copyright>
     <RepositoryUrl>https://github.com/paul1956/MsgBox</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AssemblyVersion>1.0.1.0</AssemblyVersion>
+    <AssemblyVersion>1.0.2.0</AssemblyVersion>
     <PackageReleaseNotes>Added MIT License</PackageReleaseNotes>
-    <FileVersion>1.0.1.0</FileVersion>
-    <Version>1.0.1</Version>
+    <FileVersion>1.0.2.0</FileVersion>
+    <Version>1.0.2</Version>
 </PropertyGroup>
 
 </Project>
