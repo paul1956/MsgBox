@@ -7,7 +7,7 @@ Option Strict On
 
 Imports System.Globalization
 
-Public Class Utils
+Public Module Utils
 
     'Summary: Retrieves a resource string and formats it by replacing placeholders
     '         with params. For example if the unformatted string is
@@ -18,9 +18,10 @@ Public Class Utils
     '  Param: Args - An array of params used to replace placeholders.
     'Returns: The resource string if found or an error message string
     '*****************************************************************************
-    Public Shared Function GetResourceString(ByVal ResourceKey As String, ByVal ParamArray Args() As String) As String
+    <CodeAnalysis.SuppressMessage("Design", "CA1031:Do not catch general exception types", Justification:="<Pending>")>
+    Public Function GetResourceString(ByVal ResourceKey As String, ByVal ParamArray Args() As String) As String
 
-        Debug.Assert(Not ResourceKey = "", "ResourceKey is missing")
+        Debug.Assert(String.IsNullOrEmpty(ResourceKey), "ResourceKey is missing")
         Debug.Assert(Not Args Is Nothing, "No Args")
 
         Dim UnformattedString As String = Nothing
@@ -48,21 +49,22 @@ Public Class Utils
             Throw ex
         Catch ex As Exception
             Debug.Fail("Unable to get and format string for ResourceKey: " & ResourceKey)
+            Throw ex
         Finally
-            Debug.Assert(Not UnformattedString = "", "Unable to get string for ResourceKey: " & ResourceKey)
-            Debug.Assert(Not FormattedString = "", "Unable to format string for ResourceKey: " & ResourceKey)
+            Debug.Assert(Not String.IsNullOrEmpty(UnformattedString), "Unable to get string for ResourceKey: " & ResourceKey)
+            Debug.Assert(Not String.IsNullOrEmpty(FormattedString), "Unable to format string for ResourceKey: " & ResourceKey)
         End Try
 
         'Return the string if we have one otherwise return a default error message
-        If Not FormattedString = "" Then
-            Return FormattedString
-        Else
+        If String.IsNullOrEmpty(FormattedString) Then
             Return UnformattedString 'will contain an error string from the attempt to load via the GetResourceString() overload we call internally
+        Else
+            Return FormattedString
         End If
     End Function
 
-    Friend Shared Function GetCultureInfo() As CultureInfo
+    Friend Function GetCultureInfo() As CultureInfo
         Return Threading.Thread.CurrentThread.CurrentCulture
     End Function
 
-End Class
+End Module

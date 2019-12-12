@@ -17,11 +17,10 @@ End Interface
 <ComponentModel.EditorBrowsable(ComponentModel.EditorBrowsableState.Never)>
     Public NotInheritable Class HostServices
 
-#Disable Warning IDE0032 ' Use auto property
-        Private Shared m_host As IVbHost
-#Enable Warning IDE0032 ' Use auto property
+    <CodeAnalysis.SuppressMessage("Style", "IDE0032:Use auto property", Justification:="Waiting for full IVbHost implementation")>
+    Private Shared m_host As IVbHost
 
-        Public Shared Property VBHost() As IVbHost
+    Public Shared Property VBHost() As IVbHost
             Get
                 Return m_host
             End Get
