@@ -8,21 +8,14 @@ Imports Xunit
 
 
 Namespace Microsoft.VisualBasic.Tests.VB
-
     Public NotInheritable Class MsgBoxTests
 
         Sub New()
         End Sub
 
-        Public Shared ReadOnly Property ManualTestsEnabled() As Boolean
-            Get
-                Return Not String.IsNullOrEmpty(Environment.GetEnvironmentVariable("MANUAL_TESTS"))
-            End Get
-        End Property
-
-        <ConditionalFact(NameOf(ManualTestsEnabled))>
+        <Fact>
         <PlatformSpecific(TestPlatforms.Windows)>
-        Public Sub MsgBoxTestWindows()
+        Public Shared Sub MsgBoxTestWindows()
             ' Check default buttons
             Assert.Equal(MsgBox("Hit Enter", MsgBoxStyle.OkCancel Or MsgBoxStyle.DefaultButton1), MsgBoxResult.Ok)
             Assert.Equal(MsgBox("Hit Enter", MsgBoxStyle.OkCancel Or MsgBoxStyle.DefaultButton2), MsgBoxResult.Cancel)

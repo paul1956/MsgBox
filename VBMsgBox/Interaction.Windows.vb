@@ -32,10 +32,10 @@ Partial Public Module Interaction
     Public Function MsgBox(ByVal Prompt As Object, Optional ByVal Buttons As MsgBoxStyle = MsgBoxStyle.OkOnly, Optional ByVal Title As Object = Nothing) As MsgBoxResult
         Dim sPrompt As String = Nothing
         Dim sTitle As String
-        Dim vbhost As IVbHost
+        Dim vbhost As Microsoft.VisualBasic.CompilerServices.IVbHost
         Dim ParentWindow As IWin32Window = Nothing
 
-        vbhost = HostServices.VBHost
+        vbhost = Microsoft.VisualBasic.CompilerServices.HostServices.VBHost
         If Not vbhost Is Nothing Then
             ParentWindow = vbhost.GetParentWindow()
         End If

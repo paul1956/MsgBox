@@ -13,9 +13,9 @@
     <Copyright>Copyright @2019</Copyright>
     <RepositoryUrl>https://github.com/paul1956/MsgBox</RepositoryUrl>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <AssemblyVersion>1.0.2.0</AssemblyVersion>
+    <AssemblyVersion>1.0.3.0</AssemblyVersion>
     <PackageReleaseNotes>Added MIT License</PackageReleaseNotes>
-    <FileVersion>1.0.2.0</FileVersion>
+    <FileVersion>1.0.3.0</FileVersion>
     <Version>1.0.2</Version>
 </PropertyGroup>
 
